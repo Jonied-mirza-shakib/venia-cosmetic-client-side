@@ -7,6 +7,10 @@ import Blog from './Page/Blog/Blog'
 import Login from './Page/Login/Login'
 import Products from './Page/Products/Products';
 import ProductsDetails from './Page/Products/ProductsDetails';
+import BlogDetails from './Page/Blog/BlogDetails';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Footer from './Page/Footer/Footer';
 
 function App() {
   return (
@@ -19,7 +23,10 @@ function App() {
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/products' element={<Products></Products>}></Route>
       <Route path='/productsDetails/:id' element={<ProductsDetails></ProductsDetails>}></Route>
+      <Route path='/blogDetails/:id' element={<BlogDetails></BlogDetails>}></Route>
       </Routes>
+      <Footer></Footer>
+      <ToastContainer/>
     </div>
   );
 }

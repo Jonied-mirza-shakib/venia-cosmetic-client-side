@@ -1,0 +1,10 @@
+.blog-name{
+    font-size: 20px;
+    text-transform: capitalize;
+    color: darkcyan;
+    font-weight: bold;
+}
+.blog-description{
+    font-size: 15px;
+    color: gray;
+}

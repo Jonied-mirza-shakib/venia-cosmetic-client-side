@@ -42,9 +42,21 @@ const ProductsDetails = () => {
     let text = parseFloat((total * 5 / 100).toFixed(2))
     let orderTotal = parseInt(text + total)
     //product total increase price 
-    const handleDecrease = product => {
-        console.log(product)
+    const handleDecrease = selectProduct => {
+        let newCart = []
+        const exist = cart.find(products => products._id === selectProduct._id);
+        if (!exist) {
+            selectProduct.quantity = 1;
+            newCart = [...cart, selectProduct]
+        } else {
+            const rest = cart.filter(products => products._id !== selectProduct._id)
+            exist.quantity = exist.quantity - 1;
+            newCart = [...rest, exist]
+        }
+        setCart(newCart)
     }
+  
+
 
     return (
         <div>
@@ -56,15 +68,16 @@ const ProductsDetails = () => {
                     <span>Products Details</span>
                 </div>
             </div>
-            <div className='grid lg:grid-cols-2 gap-4' style={{ width: '95%', margin: 'auto', marginTop: '40px' }}>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4' style={{ width: '95%', margin: 'auto', marginTop: '40px' }}>
                 <div>
-                    <div class="card card-compact w-9/12 h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
+                    <div class="card card-compact sm:w-full w-9/12 h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
                         <figure><img className='w-7/12' src={product.img} alt="Shoes" /></figure>
                         <div class="card-body text-center">
                             <h2 className='product-name'>{product.name}</h2>
                             <h5 className='product-price mt-2'>${product.price}</h5>
                             <div className='order-button'>
-                                <button type="button" className='btn first-btn' onClick={() => handleDecrease(product)}>-</button>
+                                {quantity>0?<button type="button" className='btn first-btn' onClick={() => handleDecrease(product)}>-</button>:<button disabled type="button" className='btn first-btn' onClick={() => handleDecrease(product)}>-</button>
+                                }
                                 <button type="button" className='btn' onClick={() => handleIncrease(product)}>+</button>
                             </div>
                         </div>

@@ -1,0 +1,17 @@
+.blog-details{
+    width: 80%;
+    margin: auto;
+}
+.blog-details h1{
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+    text-transform: unset;
+}
+.blog-details img{
+    width: 100%;
+    height: auto;
+}
+.blog-details p{
+    margin-top: 30px;
+}
