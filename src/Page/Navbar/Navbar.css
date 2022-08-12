@@ -1,0 +1,11 @@
+.navbar{
+    padding: 20px;
+}
+.li{
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 600;
+    text-transform: unset;
+    letter-spacing: 1px;
+    padding: 0 10px;
+}
