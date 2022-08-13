@@ -1,0 +1,11 @@
+form label{
+    display: block;
+    font-size: 15px;
+    color: darkcyan;
+    font-weight: bold;
+}
+form input{
+    border: 1px solid green;
+    padding: 10px;
+    width: 100%;
+}

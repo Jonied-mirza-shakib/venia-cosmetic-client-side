@@ -9,6 +9,7 @@ const ProductsDetails = () => {
     const { id } = useParams();
     const [products, setProduct] = useState([]);
     const [cart, setCart] = useState([]);
+    const [orderComplete,setOrderComplete]=useState(null)
     const navigate = useNavigate()
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -78,10 +79,6 @@ const ProductsDetails = () => {
         setCart(newCart)
         removeFromDb(selectProduct._id)
     }
-  
-    const handleOrder=order=>{
-        console.log(order)
-    }
 
 
     return (
@@ -120,9 +117,11 @@ const ProductsDetails = () => {
                             </div>
                             <div className='order-button'>
                             <BookingModal 
-                            handleOrder={handleOrder}
                             orderTotal={orderTotal}
+                            quantity={quantity}
+                            setOrderComplete={setOrderComplete}
                             ></BookingModal>
+                          
                             </div>
                         </div>
                     </div>

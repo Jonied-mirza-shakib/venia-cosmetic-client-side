@@ -13,7 +13,7 @@ const Navbar = () => {
       };
     const menu=<>
     <li className='li'><Link to='/'>HOME</Link></li>
-    <li className='li'><Link to='/order'>ORDER</Link></li>
+    <li className='li'><Link to='/order'>MY ORDER</Link></li>
     <li className='li'><Link to='/blog'>BLOG</Link></li>
     <li className='li'>
    {
