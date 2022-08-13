@@ -7,7 +7,7 @@ const Order = () => {
     const [order, setOrder] = useState([]);
     const [user, loading] = useAuthState(auth);
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user?.email}`)
+        fetch(`https://warm-eyrie-71382.herokuapp.com/order?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [user?.email])

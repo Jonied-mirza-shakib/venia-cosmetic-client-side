@@ -8,7 +8,7 @@ const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://warm-eyrie-71382.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
