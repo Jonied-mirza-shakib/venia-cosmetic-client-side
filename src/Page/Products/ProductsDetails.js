@@ -2,23 +2,44 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { BsArrowRightCircle } from 'react-icons/bs';
 import './ProductsDetails.css'
+import { addToDb, deleteShoppingCart, getStoredCart, removeFromDb } from '../../utilities/fakedb';
+import BookingModal from './BookingModal';
 
 const ProductsDetails = () => {
     const { id } = useParams();
-    const [product, setProduct] = useState([]);
+    const [products, setProduct] = useState([]);
     const [cart, setCart] = useState([]);
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [id])
+    }, [])
+
+    const singleProduct=products?.find(product=>product._id===id)
+
+    useEffect( () =>{
+        const storedCart = getStoredCart();
+        console.log(storedCart)
+        const savedCart = [];
+        for(const id in storedCart){
+            const addedProduct = products?.find(product=>product._id===id);
+            if(addedProduct){
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+        }
+        setCart(savedCart);
+    }, [products])
+
+
+
     const handleProduct = () => {
         navigate('/products')
     }
     // products total increase price
     const handleIncrease = selectProduct => {
-        console.log(selectProduct)
         let newCart = []
         const exist = cart.find(products => products._id === selectProduct._id);
         if (!exist) {
@@ -30,6 +51,7 @@ const ProductsDetails = () => {
             newCart = [...rest, exist]
         }
         setCart(newCart)
+        addToDb(selectProduct._id)
     }
 
     let total = 0;
@@ -54,8 +76,12 @@ const ProductsDetails = () => {
             newCart = [...rest, exist]
         }
         setCart(newCart)
+        removeFromDb(selectProduct._id)
     }
   
+    const handleOrder=order=>{
+        console.log(order)
+    }
 
 
     return (
@@ -71,14 +97,14 @@ const ProductsDetails = () => {
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4' style={{ width: '95%', margin: 'auto', marginTop: '40px' }}>
                 <div>
                     <div class="card card-compact sm:w-full w-9/12 h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
-                        <figure><img className='w-7/12' src={product.img} alt="Shoes" /></figure>
+                        <figure><img className='w-7/12' src={singleProduct?.img} alt="Shoes" /></figure>
                         <div class="card-body text-center">
-                            <h2 className='product-name'>{product.name}</h2>
-                            <h5 className='product-price mt-2'>${product.price}</h5>
+                            <h2 className='product-name'>{singleProduct?.name}</h2>
+                            <h5 className='product-price mt-2'>${singleProduct?.price}</h5>
                             <div className='order-button'>
-                                {quantity>0?<button type="button" className='btn first-btn' onClick={() => handleDecrease(product)}>-</button>:<button disabled type="button" className='btn first-btn' onClick={() => handleDecrease(product)}>-</button>
+                                {quantity>0?<button type="button" className='btn first-btn' onClick={() => handleDecrease(singleProduct)}>-</button>:<button disabled type="button" className='btn first-btn' onClick={() => handleDecrease(singleProduct)}>-</button>
                                 }
-                                <button type="button" className='btn' onClick={() => handleIncrease(product)}>+</button>
+                                <button type="button" className='btn' onClick={() => handleIncrease(singleProduct)}>+</button>
                             </div>
                         </div>
                     </div>
@@ -93,7 +119,10 @@ const ProductsDetails = () => {
                                 <h4>ORDER TOTAL: ${orderTotal}</h4>
                             </div>
                             <div className='order-button'>
-                                <button type="button" className='btn btn-primary'>Continue Order</button>
+                            <BookingModal 
+                            handleOrder={handleOrder}
+                            orderTotal={orderTotal}
+                            ></BookingModal>
                             </div>
                         </div>
                     </div>

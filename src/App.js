@@ -11,6 +11,9 @@ import BlogDetails from './Page/Blog/BlogDetails';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './Page/Footer/Footer';
+import SignUp from './SignUp/SignUp';
+import Dashboard from './Dashboard/Dashboard';
+import RequireAuth from './RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -24,6 +27,10 @@ function App() {
       <Route path='/products' element={<Products></Products>}></Route>
       <Route path='/productsDetails/:id' element={<ProductsDetails></ProductsDetails>}></Route>
       <Route path='/blogDetails/:id' element={<BlogDetails></BlogDetails>}></Route>
+      <Route path='/signUp' element={<SignUp></SignUp>}></Route>
+      <Route path='/dashboard' element={<RequireAuth>
+        <Dashboard></Dashboard>
+      </RequireAuth>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer/>
