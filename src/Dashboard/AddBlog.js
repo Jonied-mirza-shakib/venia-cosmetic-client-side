@@ -25,7 +25,7 @@ const AddBlog = () => {
             description: data.description,
             img: image
         }
-        fetch('https://warm-eyrie-71382.herokuapp.com/blog', {
+        fetch('http://localhost:5000/blog', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

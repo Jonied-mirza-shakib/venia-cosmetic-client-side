@@ -6,6 +6,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-fi
 import Loading from '../Loading/Loading'
 import './SignUp.css'
 import auth from '../firebase.init';
+import useToken from '../hooks/useToken';
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -17,11 +18,12 @@ const SignUp = () => {
       ] = useCreateUserWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const [token]=useToken(googleUser||user)
     if (googleLoading||loading) {
         return <Loading></Loading>
     }
 
-    if (googleUser||user) {
+    if (token) {
         navigate('/')
     }
 let errorMessage;

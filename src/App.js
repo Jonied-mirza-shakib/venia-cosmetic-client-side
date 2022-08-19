@@ -17,6 +17,8 @@ import RequireAuth from './RequireAuth/RequireAuth';
 import AddProduct from './Dashboard/AddProduct';
 import MyProfile from './Dashboard/MyProfile';
 import AddBlog from './Dashboard/AddBlog';
+import ManageProducts from './Dashboard/ManageProducts';
+import UpdateProducts from './Dashboard/UpdateProducts';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
       <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
       <Route index element={<MyProfile></MyProfile>}></Route>
       <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
+      <Route path='manageProduct' element={<ManageProducts></ManageProducts>}></Route>
+      <Route path='updateProduct/:id' element={<UpdateProducts></UpdateProducts>}></Route>
       <Route path='blog' element={<AddBlog></AddBlog>}></Route>
       </Route>
       </Routes>
