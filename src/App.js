@@ -19,6 +19,8 @@ import MyProfile from './Dashboard/MyProfile';
 import AddBlog from './Dashboard/AddBlog';
 import ManageProducts from './Dashboard/ManageProducts';
 import UpdateProducts from './Dashboard/UpdateProducts';
+import ManageBlog from './Dashboard/ManageBlog';
+import UpdateBlog from './Dashboard/UpdateBlog';
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
       <Route path='manageProduct' element={<ManageProducts></ManageProducts>}></Route>
       <Route path='updateProduct/:id' element={<UpdateProducts></UpdateProducts>}></Route>
       <Route path='blog' element={<AddBlog></AddBlog>}></Route>
+      <Route path='manageBlog' element={<ManageBlog></ManageBlog>}></Route>
+      <Route path='updateBlog/:id' element={<UpdateBlog></UpdateBlog>}></Route>
       </Route>
       </Routes>
       <Footer></Footer>

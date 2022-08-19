@@ -1,16 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ManageProducts = () => {
     const [product, setProduct] = useState([]);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
-    const handleUpdate=id=>{
+    const handleUpdate = id => {
         navigate(`/dashboard/updateProduct/${id}`)
+    }
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure You want to delete now');
+        if (proceed) {
+            fetch(`http://localhost:5000/products/${id}`, {
+                method: 'DELETE',
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.deletedCount>0){
+                    const remaining=product.filter(products=>products._id!==id);
+                    setProduct(remaining)
+                    toast('Your products deleted successfully')
+                }
+            })
+        }
     }
     return (
         <div>
@@ -26,8 +43,8 @@ const ManageProducts = () => {
                                     <h5 className='product-price mt-2'>${products.price}</h5>
                                 </div>
                                 <div className='grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4'>
-                                    <button onClick={()=>handleUpdate(products._id)} type="button" className='btn btn-success btn-xl text-gray-50 w-full'>UPDATE</button>
-                                    <button type="button" className='btn btn-success btn-xl text-gray-50 w-full'>DELETE</button>
+                                    <button onClick={() => handleUpdate(products._id)} type="button" className='btn btn-success btn-xl text-gray-50 w-full'>UPDATE</button>
+                                    <button type="button" className='btn btn-success btn-xl text-gray-50 w-full' onClick={() => handleDelete(products._id)}>DELETE</button>
                                 </div>
                             </div>
                         </div>

@@ -10,16 +10,19 @@ const Navbar = () => {
     const logout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
-      };
-    const menu=<>
-    <li className='li'><Link to='/'>HOME</Link></li>
-    <li className='li'><Link to='/order'>MY ORDER</Link></li>
-    <li className='li'><Link to='/blog'>BLOG</Link></li>
-    <li className='li'>
-   {
-     user?<button onClick={logout} type="button" className='btn text-white'>Log Out</button>:<Link to='/login'>LOGIN</Link>
-   }
-        
+    };
+    const menu = <>
+        <li className='li'><Link to='/'>HOME</Link></li>
+        <li className='li'><Link to='/order'>MY ORDER</Link></li>
+        <li className='li'><Link to='/blog'>BLOG</Link></li>
+        {
+            user && <li className='li'><Link to='/dashboard'>DASHBOARD</Link></li>
+        }
+        <li className='li'>
+            {
+                user ? <button onClick={logout} type="button" className='btn text-white'>Log Out</button> : <Link to='/login'>LOGIN</Link>
+            }
+
         </li>
     </>
     return (
@@ -38,14 +41,14 @@ const Navbar = () => {
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
-                      {menu} 
+                        {menu}
                     </ul>
                 </div>
-                <div class="navbar-end">
-                    {
-                        user&&<a class="btn"><Link to='/dashboard'>DASHBOARD</Link></a>
-                    }
-                </div>
+                <div className="navbar-end">
+                <label tabIndex="1" for="my-drawer" className="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </label>
+            </div>
             </div>
         </div>
     );
