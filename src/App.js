@@ -21,10 +21,14 @@ import ManageProducts from './Dashboard/ManageProducts';
 import UpdateProducts from './Dashboard/UpdateProducts';
 import ManageBlog from './Dashboard/ManageBlog';
 import UpdateBlog from './Dashboard/UpdateBlog';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+import Users from './Dashboard/Users';
+const queryClient = new QueryClient()
 
 function App() {
   return (
     <div>
+     <QueryClientProvider client={queryClient}>
       <Navbar></Navbar>
       <Routes>
       <Route path='/' element={<Home></Home>}></Route>
@@ -45,9 +49,11 @@ function App() {
       <Route path='blog' element={<AddBlog></AddBlog>}></Route>
       <Route path='manageBlog' element={<ManageBlog></ManageBlog>}></Route>
       <Route path='updateBlog/:id' element={<UpdateBlog></UpdateBlog>}></Route>
+      <Route path='user' element={<Users></Users>}></Route>
       </Route>
       </Routes>
       <Footer></Footer>
+    </QueryClientProvider>
       <ToastContainer/>
     </div>
   );

@@ -8,7 +8,12 @@ const Products = () => {
     const navigate=useNavigate();
     const [product,setProduct]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/products',{
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[])
