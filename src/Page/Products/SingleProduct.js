@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import './SingleProduct.css'
 
@@ -15,7 +16,7 @@ const SingleProduct = ({products}) => {
           <h2 className='product-name'>{products.name}</h2>
           <div className='grid lg:grid-cols-2 gap-4 justify-between mt-3'>
           <h5 className='product-price mt-2'>${products.price}</h5>
-            <button type="button" onClick={()=>handleCart(products._id)} className='btn'>ADD TO CART</button>
+            <button type="button" onClick={()=>handleCart(products._id)} className='btn'><AiOutlineShoppingCart style={{fontSize:'20px'}}/></button>
           </div>
         </div>
       </div>

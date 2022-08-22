@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import Blog from '../Blog/Blog';
 import './Home.css'
@@ -8,7 +9,12 @@ const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/products',{
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -60,7 +66,7 @@ const Home = () => {
                                     <h2 className='product-name'>{products.name}</h2>
                                     <div className='grid lg:grid-cols-2 gap-4 justify-between mt-3'>
                                         <h5 className='product-price mt-2'>${products.price}</h5>
-                                        <button type="button" onClick={() => handleCart(products._id)} className='btn'>ADD TO CART</button>
+                                        <button type="button" onClick={() => handleCart(products._id)} className='btn'><AiOutlineShoppingCart style={{fontSize:'20px'}}/></button>
                                     </div>
                                 </div>
                             </div>

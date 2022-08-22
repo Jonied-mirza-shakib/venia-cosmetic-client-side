@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://secret-dusk-46242.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const Users = () => {
 
     return (
         <div>
-            <h1>{users?.length}</h1>
+            <h1 className='text-2xl text-center text-blue-700 uppercase font-bold mb-5 mt-5'>All User</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

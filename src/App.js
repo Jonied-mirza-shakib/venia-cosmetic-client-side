@@ -23,6 +23,7 @@ import ManageBlog from './Dashboard/ManageBlog';
 import UpdateBlog from './Dashboard/UpdateBlog';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Users from './Dashboard/Users';
+import RequireAdmin from './RequireAuth/RequireAdmin';
 const queryClient = new QueryClient()
 
 function App() {
@@ -43,13 +44,13 @@ function App() {
       <Route path='/signUp' element={<SignUp></SignUp>}></Route>
       <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
       <Route index element={<MyProfile></MyProfile>}></Route>
-      <Route path='addProduct' element={<AddProduct></AddProduct>}></Route>
-      <Route path='manageProduct' element={<ManageProducts></ManageProducts>}></Route>
-      <Route path='updateProduct/:id' element={<UpdateProducts></UpdateProducts>}></Route>
-      <Route path='blog' element={<AddBlog></AddBlog>}></Route>
-      <Route path='manageBlog' element={<ManageBlog></ManageBlog>}></Route>
-      <Route path='updateBlog/:id' element={<UpdateBlog></UpdateBlog>}></Route>
-      <Route path='user' element={<Users></Users>}></Route>
+      <Route path='addProduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+      <Route path='manageProduct' element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route>
+      <Route path='updateProduct/:id' element={<RequireAdmin><UpdateProducts></UpdateProducts></RequireAdmin>}></Route>
+      <Route path='blog' element={<RequireAdmin><AddBlog></AddBlog></RequireAdmin>}></Route>
+      <Route path='manageBlog' element={<RequireAdmin><ManageBlog></ManageBlog></RequireAdmin>}></Route>
+      <Route path='updateBlog/:id' element={<RequireAdmin><UpdateBlog></UpdateBlog></RequireAdmin>}></Route>
+      <Route path='user' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
       </Route>
       </Routes>
       <Footer></Footer>
