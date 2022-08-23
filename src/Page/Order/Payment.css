@@ -1,0 +1,11 @@
+.payment{
+    width: 95%;
+    margin: auto;
+    margin-top: 40px;
+}
+.cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

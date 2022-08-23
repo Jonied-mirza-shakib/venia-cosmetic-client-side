@@ -24,6 +24,7 @@ import UpdateBlog from './Dashboard/UpdateBlog';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Users from './Dashboard/Users';
 import RequireAdmin from './RequireAuth/RequireAdmin';
+import Payment from './Page/Order/Payment';
 const queryClient = new QueryClient()
 
 function App() {
@@ -33,9 +34,8 @@ function App() {
       <Navbar></Navbar>
       <Routes>
       <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/order' element={<RequireAuth>
-        <Order></Order>
-      </RequireAuth>}></Route>
+      <Route path='/order' element={<RequireAuth><Order></Order></RequireAuth>}></Route>
+      <Route path='/payment/:id' element={<Payment></Payment>}></Route>
       <Route path='/blog' element={<Blog></Blog>}></Route>
       <Route path='/login' element={<Login></Login>}></Route>
       <Route path='/products' element={<Products></Products>}></Route>
