@@ -16,7 +16,7 @@ const CheckoutForm = ({ orders }) => {
     const [proccessing, setProccessing] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://warm-eyrie-71382.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({ orders }) => {
                 totalPrice: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://warm-eyrie-71382.herokuapp.com/order/${_id}`, {
                 method: 'PATCH', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

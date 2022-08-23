@@ -27,7 +27,7 @@ const AddProduct = () => {
             price: data.price,
             img: image
           }
-          fetch('http://localhost:5000/products', {
+          fetch('https://warm-eyrie-71382.herokuapp.com/products', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

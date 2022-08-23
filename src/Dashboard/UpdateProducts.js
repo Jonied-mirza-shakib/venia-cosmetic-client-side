@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const UpdateProducts = () => {
     const { id } = useParams()
@@ -8,36 +9,21 @@ const UpdateProducts = () => {
     const imageStorageApi = '19bf4cd9f8fbd132a1a0e00b0808ce6a';
     const onSubmit = async data => {
         console.log(data)
-        const image = data.image[0];
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageStorageApi}`
-        fetch(url, {
-            method: 'PUT',
-            body: formData
+        fetch(`https://warm-eyrie-71382.herokuapp.com/products/${id}`, {
+            method: 'PUT', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
         })
             .then((response) => response.json())
-            .then((result) => {
-                console.log('Success:', result);
-                if (result.success) {
-                    const images = result.data.url;
-                    const updateProduct = {
-                        name: data.name,
-                        price: data.price,
-                        img: images
-                    }
-                    fetch(`http://localhost:5000/products/${id}`, {
-                        method: 'PUT', // or 'PUT'
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(updateProduct),
-                    })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            console.log('data:', data);
-                        })
-                }
+            .then((data) => {
+                console.log('data:', data);
+                if(data.modifiedCount>0){
+                    toast('Product Updated successfully')
+                   }else{
+                    toast.error('Product Updated Filed')
+                   }
             })
         reset()
     }
@@ -61,9 +47,9 @@ const UpdateProducts = () => {
                             {errors.price && <p>price is required</p>}
                         </div>
                         <div>
-                            <label for="image">Image</label>
+                            <label for="image">Image Url</label>
                             <br />
-                            <input className='w-full' type='file' {...register("image", { required: true })} />
+                            <input className='w-full' type='text' {...register("img", { required: true })} />
                             {errors.image && <p>image is required</p>}
                         </div>
                         <input type="submit" value='UPDATE' className='btn mt-5 text-xl font-bold cursor-pointer w-full' />
