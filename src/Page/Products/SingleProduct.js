@@ -3,20 +3,23 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import './SingleProduct.css'
 
-const SingleProduct = ({ products,index }) => {
+const SingleProduct = ({ products, index }) => {
   const navigate = useNavigate();
   const handleCart = id => {
     console.log(id)
     navigate(`/productsDetails/${id}`)
   }
   return (
-    <tr key={products._id}>
-        <th>{index + 1}</th>
-        <td>{products.name}</td>
-        <td><img className='w-40' src={products.img} alt=""/></td>
-        <td className='text-secondary text-xl font-bold'>$ {products.price}</td>
-        <td><button type="button" onClick={()=>handleCart(products._id)} className='btn btn-primary'><AiOutlineShoppingCart style={{fontSize:'20px'}}/></button></td>
-      </tr>
+    <div key={products._id} class="card w-max-w bg-base-100 shadow-xl">
+      <figure>
+      <img src={products.img} alt=""/>
+      </figure>
+  <div class="card-body">
+    <h2 class="card-title">{products.name}</h2>
+    <p className='text-secondary text-xl font-bold'>$ {products.price}</p>
+    <button type="button" onClick={()=>handleCart(products._id)} className='btn btn-primary'><AiOutlineShoppingCart style={{fontSize:'20px'}}/></button>
+  </div>
+</div>
   );
 };
 

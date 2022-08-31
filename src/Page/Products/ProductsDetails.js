@@ -12,7 +12,7 @@ const ProductsDetails = () => {
     const [orderComplete,setOrderComplete]=useState(null)
     const navigate = useNavigate()
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/products',{
+        fetch('https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/products',{
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

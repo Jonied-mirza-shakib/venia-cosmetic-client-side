@@ -9,7 +9,7 @@ const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/products',{
+        fetch('https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/products',{
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -79,8 +79,10 @@ const Home = () => {
                 <button onClick={handleShop} type="button" className='btn btn-outline btn-secondary'>SHOP NOW</button>
                 </div>
             </div>
-            <JustForYour></JustForYour>
+          <div>
+          <JustForYour></JustForYour>
             <Blog></Blog>
+          </div>
         </div>
     );
 };

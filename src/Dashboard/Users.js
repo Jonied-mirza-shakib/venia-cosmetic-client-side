@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://warm-eyrie-71382.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Users = () => {
     }
 
     const makeAdmin = email => {
-        fetch(`https://warm-eyrie-71382.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

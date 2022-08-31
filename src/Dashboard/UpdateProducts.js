@@ -9,7 +9,7 @@ const UpdateProducts = () => {
     const imageStorageApi = '19bf4cd9f8fbd132a1a0e00b0808ce6a';
     const onSubmit = async data => {
         console.log(data)
-        fetch(`https://warm-eyrie-71382.herokuapp.com/products/${id}`, {
+        fetch(`https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/products/${id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

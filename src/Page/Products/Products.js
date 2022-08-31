@@ -8,7 +8,7 @@ const Products = () => {
     const navigate=useNavigate();
     const [product,setProduct]=useState([]);
     useEffect(()=>{
-        fetch('https://warm-eyrie-71382.herokuapp.com/products',{
+        fetch('https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/products',{
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -31,27 +31,9 @@ const Products = () => {
                 </div>
             </div>
            <div className='product'>
-           <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Cart</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            product.map((products,index)=> <SingleProduct key={products._id} index={index} products={products}></SingleProduct>)
-                        }
-                    </tbody>
-                </table>
-            </div>
            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                 {
-                    
+                    product.map((products,index)=> <SingleProduct key={products._id} index={index} products={products}></SingleProduct>)
                 }
             </div>
            </div>
