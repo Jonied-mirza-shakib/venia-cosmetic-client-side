@@ -27,7 +27,7 @@ const AddProduct = () => {
             price: data.price,
             img: image
           }
-          fetch('https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/products', {
+          fetch('https://warm-eyrie-71382.herokuapp.com/products', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

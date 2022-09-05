@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51L4fLCD15eCVhrzNkkD1sfSX6fDlCTxWEEHGv
 const Payment = () => {
     const { id } = useParams();
     const [user, loading] = useAuthState(auth);
-    const { data: orders, isLoading, refetch } = useQuery(['order', id], () => fetch(`https://venia-cosmetic-sever-side-jonied-mirza-shakib.vercel.app/order/${id}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['order', id], () => fetch(`https://warm-eyrie-71382.herokuapp.com/order/${id}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
