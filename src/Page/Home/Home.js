@@ -9,7 +9,7 @@ const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch('https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/products')
+        fetch('https://warm-eyrie-71382.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -54,7 +54,7 @@ const Home = () => {
                 <div>
                     <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:mt-20'>
                     {
-                        product.splice(0, 2).map(products =>
+                        product.slice(0, 2).map(products =>
                             <div class="card card-compact w-max-w h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
                                 <figure><img className='w-full' src={products.img} alt="Shoes" /></figure>
                                 <div class="card-body">

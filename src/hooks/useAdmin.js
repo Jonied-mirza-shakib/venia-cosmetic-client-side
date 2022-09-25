@@ -6,7 +6,7 @@ const [adminLoading,setAdminLoading]=useState(true);
 useEffect(()=>{
     const email=user?.email;
     if(email){
-        fetch(`https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/admin/${email}`, {
+        fetch(`https://warm-eyrie-71382.herokuapp.com/admin/${email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
