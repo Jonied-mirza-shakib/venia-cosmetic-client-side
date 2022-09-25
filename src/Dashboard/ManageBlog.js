@@ -6,7 +6,7 @@ const ManageBlog = () => {
     const [blogs, setBlog] = useState([]);
     const navigate=useNavigate()
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/blog')
+        fetch('https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/blog')
             .then(res => res.json())
             .then(data => setBlog(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageBlog = () => {
     const handleDelete=id=>{
         const proceed=window.confirm('Are you sure you want to delete now');
         if(proceed){
-            fetch(`https://warm-eyrie-71382.herokuapp.com/blog/${id}`,{
+            fetch(`https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/blog/${id}`,{
                 method:'DELETE'
             })
             .then(res=>res.json())

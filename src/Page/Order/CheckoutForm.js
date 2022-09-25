@@ -16,7 +16,7 @@ const CheckoutForm = ({ orders }) => {
     const [proccessing, setProccessing] = useState(false);
 
     useEffect(() => {
-        fetch("https://warm-eyrie-71382.herokuapp.com/create-payment-intent", {
+        fetch("https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({ orders }) => {
                 totalPrice: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://warm-eyrie-71382.herokuapp.com/order/${_id}`, {
+            fetch(`https://venia-cosmetic-sever-side-dkuh-jonied-mirza-shakib.vercel.app/order/${_id}`, {
                 method: 'PATCH', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
