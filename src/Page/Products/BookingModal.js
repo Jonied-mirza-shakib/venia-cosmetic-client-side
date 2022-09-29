@@ -15,7 +15,7 @@ const BookingModal = ({orderTotal, quantity }) => {
         const quantity = event.target.quantity.value;
         const total = event.target.total.value;
         const data = { name, email, number, quantity, total };
-        fetch('https://warm-eyrie-71382.herokuapp.com/order', {
+        fetch('https://venia-cosmetic-sever-side.onrender.com/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

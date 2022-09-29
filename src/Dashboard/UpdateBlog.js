@@ -12,7 +12,7 @@ const UpdateBlog = () => {
         const description = event.target.description.value;
         const updateBlog = { name, img, description }
         console.log(updateBlog)
-        fetch(`https://warm-eyrie-71382.herokuapp.com/blog/${id}`, {
+        fetch(`https://venia-cosmetic-sever-side.onrender.com/blog/${id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

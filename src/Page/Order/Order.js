@@ -10,7 +10,7 @@ const Order = () => {
     const [user, loading] = useAuthState(auth);
     const navigate=useNavigate();
     useEffect(() => {
-        fetch(`https://warm-eyrie-71382.herokuapp.com/order?email=${user?.email}`, {
+        fetch(`https://venia-cosmetic-sever-side.onrender.com/order?email=${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

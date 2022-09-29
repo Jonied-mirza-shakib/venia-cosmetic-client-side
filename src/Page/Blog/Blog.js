@@ -5,7 +5,7 @@ import SingleBlog from './SingleBlog';
 const Blog = () => {
     const [blog,setBlog]=useState([]);
     useEffect(()=>{
-        fetch('https://warm-eyrie-71382.herokuapp.com/blog')
+        fetch('https://venia-cosmetic-sever-side.onrender.com/blog')
         .then(res=>res.json())
         .then(data=>setBlog(data))
     },[])
