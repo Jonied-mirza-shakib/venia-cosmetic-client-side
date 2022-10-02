@@ -6,12 +6,7 @@ const ManageProducts = () => {
     const [product, setProduct] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://venia-cosmetic-sever-side.onrender.com/products',{
-            method: 'GET',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])

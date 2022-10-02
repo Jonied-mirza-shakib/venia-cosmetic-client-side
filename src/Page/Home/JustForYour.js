@@ -7,12 +7,7 @@ const JustForYour = () => {
     const navigate=useNavigate()
     const [product, setProduct] = useState([]);
     useEffect(() => {
-        fetch('https://venia-cosmetic-sever-side.onrender.com/products',{
-            method: 'GET',
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
+        fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
