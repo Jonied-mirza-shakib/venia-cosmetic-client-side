@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import Blog from '../Blog/Blog';
@@ -8,7 +9,6 @@ import JustForYour from './JustForYour';
 const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
-    const [reloads, setReloads] = useState("");
     useEffect(() => {
         fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
@@ -30,9 +30,7 @@ const Home = () => {
         navigate('/products')
     }
     
-    setTimeout(function () {
-        setReloads("")
-    }, 1000);
+ 
     return (
         <div>
             <div className='home-bg'>
@@ -82,7 +80,7 @@ const Home = () => {
                 <JustForYour></JustForYour>
                 <Blog></Blog>
             </div>
-            {reloads}
+           
         </div>
     );
 };

@@ -1,4 +1,3 @@
-import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Page/Home/Home';
 import Navbar from './Page/Navbar/Navbar';
@@ -25,7 +24,10 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 import Users from './Dashboard/Users';
 import RequireAdmin from './RequireAuth/RequireAdmin';
 import Payment from './Page/Order/Payment';
+import { Route, Routes } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root';
 const queryClient = new QueryClient()
+
 
 function App() {
   return (
@@ -60,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default hot(App);
