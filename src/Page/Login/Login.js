@@ -49,8 +49,8 @@ const Login = () => {
             <h1 className='text-5xl text-center uppercase' style={{ fontFamily: 'Roboto Mono, monospaced', fontWeight: 'bold', color: 'darkcyan' }}>LOGIN</h1>
             <div className="divider w-1/4 m-auto mb-10"></div>
             <div className='flex justify-center items-center'>
-                <div class="card w-5/12 bg-base-100 shadow-xl">
-                    <div class="card-body">
+                <div className="card w-5/12 bg-base-100 shadow-xl">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div style={{ marginBottom: '10px' }}>
                                 <label for="email">EMAIL</label>

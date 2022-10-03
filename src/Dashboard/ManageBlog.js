@@ -35,7 +35,7 @@ const ManageBlog = () => {
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 mb-10'>
                 {
                     blogs.map(blogs =>
-                        <div class="card card-compact w-max-w h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
+                        <div className="card card-compact w-max-w h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
                             <div style={{padding:'20px'}}>
                                 <h1 className='text-2xl mb-5 text-center'>{blogs.name}</h1>
                                 <img src={blogs.img} alt="" />

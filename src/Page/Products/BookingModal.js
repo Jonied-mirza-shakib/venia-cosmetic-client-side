@@ -35,11 +35,11 @@ const BookingModal = ({orderTotal, quantity }) => {
 
     return (
         <div>
-            <label for="my-modal-3" class="btn modal-button" onClick={() => handleOrder(orderTotal)}>Continue Order</label>
-            <input type="checkbox" id="my-modal-3" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box relative">
-                    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+            <label for="my-modal-3" className="btn modal-button" onClick={() => handleOrder(orderTotal)}>Continue Order</label>
+            <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box relative">
+                    <label for="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleOrder}>
                         <div>
                             <label for="name">NAME</label>

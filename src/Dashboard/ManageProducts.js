@@ -35,9 +35,9 @@ const ManageProducts = () => {
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10'>
                 {
                     product.map(products =>
-                        <div class="card card-compact w-max-w h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
+                        <div className="card card-compact w-max-w h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
                             <figure><img className='w-full' src={products.img} alt="Shoes" /></figure>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <h2 className='product-name'>{products.name}</h2>
                                 <div className='grid lg:grid-cols-2 gap-4 justify-between mt-3'>
                                     <h5 className='product-price mt-2'>${products.price}</h5>

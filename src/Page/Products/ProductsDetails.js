@@ -93,9 +93,9 @@ const ProductsDetails = () => {
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4' style={{ width: '95%', margin: 'auto', marginTop: '40px' }}>
                 <div>
-                    <div class="card card-compact sm:w-full w-9/12 h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
+                    <div className="card card-compact sm:w-full w-9/12 h-auto bg-base-100 shadow-xl" style={{ backgroundColor: '#F9F9F9' }}>
                         <figure><img className='w-7/12' src={singleProduct?.img} alt="Shoes" /></figure>
-                        <div class="card-body text-center">
+                        <div className="card-body text-center">
                             <h2 className='product-name'>{singleProduct?.name}</h2>
                             <h5 className='product-price mt-2'>${singleProduct?.price}</h5>
                             <div className='order-button'>
@@ -107,8 +107,8 @@ const ProductsDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <div class="card w-max-w bg-base-100 shadow-xl order-bg">
-                        <div class="card-body">
+                    <div className="card w-max-w bg-base-100 shadow-xl order-bg">
+                        <div className="card-body">
                             <div className='order-list'>
                                 <h4>QUANTITY: {quantity}</h4>
                                 <h4>TOTAL: ${total}</h4>

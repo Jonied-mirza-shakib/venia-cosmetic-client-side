@@ -38,8 +38,8 @@ const Users = () => {
     return (
         <div>
             <h1 className='text-2xl text-center text-blue-700 uppercase font-bold mb-5 mt-5'>All User</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>

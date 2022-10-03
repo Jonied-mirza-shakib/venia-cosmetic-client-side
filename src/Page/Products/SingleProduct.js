@@ -10,12 +10,12 @@ const SingleProduct = ({ products, index }) => {
     navigate(`/productsDetails/${id}`)
   }
   return (
-    <div key={products._id} class="card w-max-w bg-base-100 shadow-xl">
+    <div key={products._id} className="card w-max-w bg-base-100 shadow-xl">
       <figure>
       <img src={products.img} alt=""/>
       </figure>
-  <div class="card-body">
-    <h2 class="card-title">{products.name}</h2>
+  <div className="card-body">
+    <h2 className="card-title">{products.name}</h2>
     <p className='text-secondary text-xl font-bold'>$ {products.price}</p>
     <button type="button" onClick={()=>handleCart(products._id)} className='btn btn-primary'><AiOutlineShoppingCart style={{fontSize:'20px'}}/></button>
   </div>

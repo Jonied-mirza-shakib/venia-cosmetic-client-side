@@ -31,8 +31,8 @@ const UpdateProducts = () => {
         <div>
             <h1 className='text-2xl text-center text-blue-700 uppercase font-bold mb-5 mt-5'>Update Product</h1>
             <div className='sm:w-full md:w-6/12 lg:w-6/12 m-auto'>
-            <div class="card w-full bg-base-100 shadow-xl">
-                <div class="card-body">
+            <div className="card w-full bg-base-100 shadow-xl">
+                <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div>
                             <label for="name">Name</label>

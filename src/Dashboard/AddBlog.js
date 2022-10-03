@@ -50,8 +50,8 @@ const AddBlog = () => {
     <div>
       <h1 className='text-3xl text-center text-blue-700 uppercase font-bold mt-5'>Blog added</h1>
       <div className='sm:w-full md:w-6/12 lg:w-6/12 m-auto'>
-      <div class="card w-full bg-base-100 shadow-xl mb-5">
-        <div class="card-body">
+      <div className="card w-full bg-base-100 shadow-xl mb-5">
+        <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div>
               <label for="name">Name</label>
