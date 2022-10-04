@@ -25,7 +25,7 @@ import Users from './Dashboard/Users';
 import RequireAdmin from './RequireAuth/RequireAdmin';
 import Payment from './Page/Order/Payment';
 import { Route, Routes } from 'react-router-dom';
-import { hot } from 'react-hot-loader/root';
+import { useEffect, useState } from 'react';
 const queryClient = new QueryClient()
 
 
@@ -62,4 +62,4 @@ function App() {
   );
 }
 
-export default hot(App);
+export default App;
