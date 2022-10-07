@@ -7,12 +7,12 @@ const Comments = () => {
     const { register, handleSubmit } = useForm();
     const [comment, setComment] = useState([]);
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/comments')
+        fetch('https://venia-cosmetic-sever-side.onrender.com/comments')
             .then(res => res.json())
             .then(data => setComment(data))
     }, [])
     const onSubmit = data => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/comments', {
+        fetch('https://venia-cosmetic-sever-side.onrender.com/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

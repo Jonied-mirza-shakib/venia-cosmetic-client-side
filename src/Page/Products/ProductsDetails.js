@@ -12,7 +12,7 @@ const ProductsDetails = () => {
     const [orderComplete,setOrderComplete]=useState(null)
     const navigate = useNavigate()
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/products')
+        fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])

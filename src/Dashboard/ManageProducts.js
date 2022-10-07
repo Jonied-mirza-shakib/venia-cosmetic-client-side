@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [product, setProduct] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://warm-eyrie-71382.herokuapp.com/products')
+        fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure You want to delete now');
         if (proceed) {
-            fetch(`https://warm-eyrie-71382.herokuapp.com/products/${id}`, {
+            fetch(`https://venia-cosmetic-sever-side.onrender.com/products/${id}`, {
                 method: 'DELETE',
             })
             .then(res=>res.json())
