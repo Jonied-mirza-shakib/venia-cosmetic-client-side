@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+import Loading from '../../Loading/Loading';
 import './Comments.css'
 
 const Comments = () => {
     const { register, handleSubmit } = useForm();
     const [comment, setComment] = useState([]);
+    const [loadings, setLoadings] = useState(true);
     useEffect(() => {
         fetch('https://venia-cosmetic-sever-side.onrender.com/comments')
             .then(res => res.json())
-            .then(data => setComment(data))
+            .then(data => {
+                setComment(data)
+                setLoadings(false)
+            })
     }, [])
+
+    if(loadings){
+        return <Loading></Loading>
+    }
+
+    // post method
     const onSubmit = data => {
         fetch('https://venia-cosmetic-sever-side.onrender.com/comments', {
             method: 'POST',

@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './JustForYour.css'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import Loading from '../../Loading/Loading';
 
 const JustForYour = () => {
     const navigate=useNavigate()
     const [product, setProduct] = useState([]);
+    const [loadings, setLoadings] = useState(true);
     useEffect(() => {
         fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => {
+                setProduct(data)
+                setLoadings(false)
+            })
     }, [])
+    if(loadings){
+        return <Loading></Loading>
+    }
     const handleCart=id=>{
         navigate(`/productsDetails/${id}`)
     }

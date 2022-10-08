@@ -5,15 +5,25 @@ import { useNavigate } from 'react-router-dom';
 import Blog from '../Blog/Blog';
 import './Home.css'
 import JustForYour from './JustForYour';
+import Loading from '../../Loading/Loading'
 
 const Home = () => {
     const navigate = useNavigate()
     const [product, setProduct] = useState([]);
+    const [loadings, setLoadings] = useState(true);
     useEffect(() => {
         fetch('https://venia-cosmetic-sever-side.onrender.com/products')
             .then(res => res.json())
-            .then(data => setProduct(data))
+            .then(data => {
+                setProduct(data)
+                setLoadings(false)
+            })
     }, [])
+
+    if(loadings){
+        return <Loading></Loading>
+    }
+
     const handleProduct = () => {
         navigate('/products')
     }
