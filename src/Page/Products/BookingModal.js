@@ -15,7 +15,7 @@ const BookingModal = ({orderTotal, quantity }) => {
         const quantity = event.target.quantity.value;
         const total = event.target.total.value;
         const data = { name, email, number, quantity, total };
-        fetch('https://venia-cosmetic-sever-side.onrender.com/order', {
+        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

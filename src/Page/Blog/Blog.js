@@ -5,7 +5,7 @@ import SingleBlog from './SingleBlog';
 const Blog = () => {
     const [blog,setBlog]=useState([]);
     useEffect(()=>{
-        fetch('https://venia-cosmetic-sever-side.onrender.com/blog')
+        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/blog')
         .then(res=>res.json())
         .then(data=>setBlog(data))
     },[])

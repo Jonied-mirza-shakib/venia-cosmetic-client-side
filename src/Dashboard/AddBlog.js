@@ -25,7 +25,7 @@ const AddBlog = () => {
             description: data.description,
             img: image
           }
-          fetch('https://venia-cosmetic-sever-side.onrender.com/blog', {
+          fetch('https://venia-cosmetic-sever-side-production.up.railway.app/blog', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

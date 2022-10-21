@@ -10,7 +10,7 @@ const Order = () => {
     const [user, loading] = useAuthState(auth);
     const navigate=useNavigate();
     useEffect(() => {
-        fetch(`https://venia-cosmetic-sever-side.onrender.com/order?email=${user?.email}`, {
+        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order?email=${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
