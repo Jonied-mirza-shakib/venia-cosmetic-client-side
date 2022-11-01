@@ -27,7 +27,7 @@ const AddProduct = () => {
             price: data.price,
             img: image
           }
-          fetch('http://localhost:5000/products', {
+          fetch('https://venia-cosmetic-sever-side-production.up.railway.app/products', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

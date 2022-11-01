@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51L4fLCD15eCVhrzNkkD1sfSX6fDlCTxWEEHGv
 const Payment = () => {
     const { id } = useParams();
     const [user, loading] = useAuthState(auth);
-    const { data: orders, isLoading, refetch } = useQuery(['order', id], () => fetch(`http://localhost:5000/order/${id}`, {
+    const { data: orders, isLoading, refetch } = useQuery(['order', id], () => fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order/${id}`, {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,7 +26,7 @@ const Payment = () => {
     return (
         <div className='payment'>
             <div className='cards'>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-50 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title text-success">Hello,{user?.email}</h2>
                         <p className='text-xl text-primary font-bold'>Please Pay for ${orders?.total}</p>

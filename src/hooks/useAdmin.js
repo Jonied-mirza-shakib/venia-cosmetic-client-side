@@ -6,7 +6,7 @@ const [adminLoading,setAdminLoading]=useState(true);
 useEffect(()=>{
     const email=user?.email;
     if(email){
-        fetch(`http://localhost:5000/admin/${email}`, {
+        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/admin/${email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

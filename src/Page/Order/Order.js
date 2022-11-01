@@ -8,9 +8,9 @@ import './Order.css'
 const Order = () => {
     const [order, setOrder] = useState([]);
     const [user, loading] = useAuthState(auth);
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
-        fetch(`http://localhost:5000/order?email=${user?.email}`, {
+        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order?email=${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,24 @@ const Order = () => {
             .then(data => {
                 setOrder(data)
             })
-    }, [user?.email,navigate])
+    }, [user?.email, navigate])
+
+
+
+    const handleClick = id => {
+        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order/${id}`, {
+            method: 'DELETE', // or 'PUT'
+        })
+        .then(res=> res.json())
+        .then(res=> {
+            console.log(res)
+            if(res.deletedCount){
+                const previewOrder = order.filter(orders=> orders._id !== id)
+                setOrder(previewOrder)
+            }
+        })
+    }
+
     return (
         <div className='order'>
             <div className="overflow-x-auto">
@@ -41,6 +58,7 @@ const Order = () => {
                             <th>Quantity</th>
                             <th>Total</th>
                             <th>Payment</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,15 +72,16 @@ const Order = () => {
                                     <td>{orders.quantity}</td>
                                     <td>{orders.total}</td>
                                     <td>
-                                        {(orders.total&& !orders.paid)&& <Link to={`/payment/${orders._id}`}><button type="button" className='btn btn-xs'>Pay</button></Link> }
+                                        {(orders.total && !orders.paid) && <Link to={`/payment/${orders._id}`}><button type="button" className='btn btn-xs'>Pay</button></Link>}
                                         {
-                                           (orders.total&& orders.paid)&& <>
-                                           <span className='text-success'>Paid</span>
-                                           <br/>
-                                           <span className='text-success'>{orders.transactionId}</span>
-                                           </>
+                                            (orders.total && orders.paid) && <>
+                                                <span className='text-success'>Paid</span>
+                                                <br />
+                                                <span className='text-success'>{orders.transactionId}</span>
+                                            </>
                                         }
                                     </td>
+                                    <td><button onClick={() => handleClick(orders._id)} type="button" className='btn btn-outline btn-primary'>DELETE</button></td>
                                 </tr>
                             )
                         }

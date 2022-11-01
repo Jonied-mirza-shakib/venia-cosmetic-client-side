@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import { toast } from 'react-toastify';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://venia-cosmetic-sever-side-production.up.railway.app/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Users = () => {
     }
 
     const makeAdmin = email => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

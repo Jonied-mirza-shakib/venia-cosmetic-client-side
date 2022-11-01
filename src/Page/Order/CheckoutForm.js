@@ -6,6 +6,7 @@ import {
 } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({ orders }) => {
+    console.log(orders,'orders')
     const {_id, total, email } = orders;
     const stripe = useStripe();
     const elements = useElements();
@@ -16,7 +17,7 @@ const CheckoutForm = ({ orders }) => {
     const [proccessing, setProccessing] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://venia-cosmetic-sever-side-production.up.railway.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -76,7 +77,7 @@ const CheckoutForm = ({ orders }) => {
                 totalPrice: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order/${_id}`, {
                 method: 'PATCH', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',

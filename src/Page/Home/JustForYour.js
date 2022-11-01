@@ -9,7 +9,7 @@ const JustForYour = () => {
     const [product, setProduct] = useState([]);
     const [loadings, setLoadings] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/products')
             .then(res => res.json())
             .then(data => {
                 setProduct(data)

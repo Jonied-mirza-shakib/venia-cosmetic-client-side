@@ -9,7 +9,7 @@ const Comments = () => {
     const [comment, setComment] = useState([]);
     const [loadings, setLoadings] = useState(true);
     useEffect(() => {
-        fetch('http://localhost:5000/comments')
+        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/comments')
             .then(res => res.json())
             .then(data => {
                 setComment(data)
@@ -23,7 +23,7 @@ const Comments = () => {
 
     // post method
     const onSubmit = data => {
-        fetch('http://localhost:5000/comments', {
+        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
