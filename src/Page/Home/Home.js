@@ -12,7 +12,7 @@ const Home = () => {
     const [product, setProduct] = useState([]);
     const [loadings, setLoadings] = useState(true);
     useEffect(() => {
-        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/products')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 setProduct(data)

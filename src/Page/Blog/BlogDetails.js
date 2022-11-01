@@ -7,7 +7,7 @@ const BlogDetails = () => {
     const {id}=useParams()
     const [blog,setBlog]=useState([]);
     useEffect(()=>{
-        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/blog/${id}`)
+        fetch(`http://localhost:5000/blog/${id}`)
         .then(res=>res.json())
         .then(data=>setBlog(data))
     },[id])

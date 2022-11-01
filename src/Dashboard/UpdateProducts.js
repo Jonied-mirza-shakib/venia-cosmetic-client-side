@@ -9,7 +9,7 @@ const UpdateProducts = () => {
     const imageStorageApi = '19bf4cd9f8fbd132a1a0e00b0808ce6a';
     const onSubmit = async data => {
         console.log(data)
-        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/products/${id}`, {
+        fetch(`http://localhost:5000/products/${id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
