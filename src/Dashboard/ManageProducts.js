@@ -6,7 +6,7 @@ const ManageProducts = () => {
     const [product, setProduct] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/products')
+        fetch('https://venia-cosmetic-sever-side-production-0705.up.railway.app/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [])
@@ -16,7 +16,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure You want to delete now');
         if (proceed) {
-            fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/products/${id}`, {
+            fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/products/${id}`, {
                 method: 'DELETE',
             })
             .then(res=>res.json())

@@ -7,7 +7,7 @@ const useToken = user => {
         const email = user?.user?.email;
         const currentUser = { email: email };
         if (email) {
-            fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/user/${email}`, {
+            fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

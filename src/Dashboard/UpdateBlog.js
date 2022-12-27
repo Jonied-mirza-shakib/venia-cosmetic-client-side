@@ -12,7 +12,7 @@ const UpdateBlog = () => {
         const description = event.target.description.value;
         const updateBlog = { name, img, description }
         console.log(updateBlog)
-        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/blog/${id}`, {
+        fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/blog/${id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

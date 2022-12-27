@@ -18,7 +18,7 @@ const BookingModal = ({ orderTotal, quantity }) => {
         const total = parseInt(data.total);
         const orderData = { name, email, number, quantity, total };
         console.log(orderData)
-        fetch('https://venia-cosmetic-sever-side-production.up.railway.app/order', {
+        fetch('https://venia-cosmetic-sever-side-production-0705.up.railway.app/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ const Order = () => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order?email=${user?.email}`, {
+        fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/order?email=${user?.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ const Order = () => {
 
 
     const handleClick = id => {
-        fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order/${id}`, {
+        fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/order/${id}`, {
             method: 'DELETE', // or 'PUT'
         })
         .then(res=> res.json())

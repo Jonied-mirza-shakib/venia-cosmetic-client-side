@@ -17,7 +17,7 @@ const CheckoutForm = ({ orders }) => {
     const [proccessing, setProccessing] = useState(false);
 
     useEffect(() => {
-        fetch("https://venia-cosmetic-sever-side-production.up.railway.app/create-payment-intent", {
+        fetch("https://venia-cosmetic-sever-side-production-0705.up.railway.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const CheckoutForm = ({ orders }) => {
                 totalPrice: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://venia-cosmetic-sever-side-production.up.railway.app/order/${_id}`, {
+            fetch(`https://venia-cosmetic-sever-side-production-0705.up.railway.app/order/${_id}`, {
                 method: 'PATCH', // or 'PUT'
                 headers: {
                     'Content-Type': 'application/json',
